@@ -3,3 +3,75 @@
 @theme {
   --font-ecb: "Euclid Circular B", sans-serif;
 }
+
+/* Make grid lines visible like screenshot */
+.fc-daygrid-day {
+  border: 1px solid #242424 !important;
+}
+
+/* Remove default FC background */
+.fc-daygrid-day-frame {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding: 6px;
+}
+
+/* Day number style */
+.fc-daygrid-day-number {
+  font-size: 14px;
+  color: white;
+}
+
+/* Today highlight style (matches screenshot) */
+.fc-today-highlight {
+  background-color: #2563eb !important; /* Tailwind blue-600 */
+  color: white !important;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  margin: auto;
+}
+
+.fc-col-header-cell {
+  border: 1px solid #242424 !important;
+  padding: 8px 0 !important;
+}
+
+/* Header day text */
+.fc-col-header-cell-cushion {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* .fc-theme-standard td,
+.fc-theme-standard th {
+  border: 1px solid #242424 !important;
+} */
+
+/* Ensure outer border matches too */
+.fc-theme-standard {
+  border: 1px solid #242424 !important;
+}
+
+.fc-dark {
+  --fc-border-color: #242424; /* changes all calendar borders */
+}
+
+/* .fc-dark .fc-scrollgrid,
+.fc-dark .fc-scrollgrid td,
+.fc-dark .fc-scrollgrid th {
+  border-color: #242424 !important;
+} */
+
+.fc-dark.fc-theme-standard {
+  border: 1px solid #242424 !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background: transparent !important;
+}

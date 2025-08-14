@@ -1,45 +1,31 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { DayPicker } from "react-day-picker";
-import type { NavProps } from "react-day-picker"; // type-only import
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { format } from "date-fns";
-import "react-day-picker/dist/style.css";
 
 export default function CalendarSidebar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<Date | undefined>(new Date());
-  const [month, setMonth] = useState(new Date());
+  const [calendarRef, setCalendarRef] = useState<any>(null);
 
-  // Custom Nav for month switching
-  const CustomNav = (props: NavProps & { displayMonths?: Date[] }) => {
-    const { onPreviousClick, onNextClick, displayMonths = [] } = props;
-    const currentMonth = displayMonths[0] ?? new Date();
+  const handlePrev = () => {
+    if (calendarRef) {
+      const api = calendarRef.getApi();
+      api.prev();
+    }
+  };
 
-    return (
-      <div className="flex items-center justify-between px-2 mb-2">
-        <button
-          className="text-gray-400 hover:text-white"
-          onClick={onPreviousClick}
-        >
-          <FiChevronLeft size={20} />
-        </button>
-        <span className="text-white font-medium">
-          {format(currentMonth, "MMMM yyyy")}
-        </span>
-        <button
-          className="text-gray-400 hover:text-white"
-          onClick={onNextClick}
-        >
-          <FiChevronRight size={20} />
-        </button>
-      </div>
-    );
+  const handleNext = () => {
+    if (calendarRef) {
+      const api = calendarRef.getApi();
+      api.next();
+    }
   };
 
   return (
     <div>
-      {/* Icon Button */}
+      {/* Calendar icon button */}
       <button
         className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
         onClick={() => setIsOpen(true)}
@@ -47,7 +33,6 @@ export default function CalendarSidebar() {
         <FiCalendar size={20} />
       </button>
 
-      {/* Sidebar */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -60,7 +45,7 @@ export default function CalendarSidebar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Drawer */}
+            {/* Sidebar */}
             <motion.div
               className="fixed right-0 top-0 h-full w-80 bg-black text-white shadow-lg flex flex-col"
               initial={{ x: "100%" }}
@@ -68,55 +53,77 @@ export default function CalendarSidebar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {/* Header */}
-              <div className="flex justify-between items-center p-4 border-b border-gray-800">
-                <h2 className="text-lg font-semibold">Calendar</h2>
+              {/* Custom Calendar Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-800">
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-gray-400 hover:text-white"
+                  onClick={handlePrev}
+                  className="p-1 text-gray-400 hover:text-white"
                 >
-                  ✕
+                  <FiChevronLeft size={20} />
+                </button>
+                <h2
+                  id="fc-month-label"
+                  className="text-lg font-medium text-white"
+                >
+                  {/* FullCalendar sets this via datesSet */}
+                </h2>
+                <button
+                  onClick={handleNext}
+                  className="p-1 text-gray-400 hover:text-white"
+                >
+                  <FiChevronRight size={20} />
                 </button>
               </div>
 
-              {/* Calendar */}
-              <div className="p-2">
-                <DayPicker
-                  mode="single"
-                  selected={selected}
-                  onSelect={setSelected}
-                  month={month}
-                  onMonthChange={setMonth}
-                  components={{
-                    Nav: CustomNav,
+              {/* FullCalendar */}
+              <div className="flex-1 fc-dark h-full">
+                <FullCalendar
+                  plugins={[dayGridPlugin]}
+                  initialView="dayGridMonth"
+                  height="100%"
+                  //   className="fc-dark"
+                  ref={(ref) => setCalendarRef(ref)}
+                  headerToolbar={false}
+                  fixedWeekCount={false}
+                  //   dayCellDidMount={(args) => {
+                  //     const dateStr = args.date.toISOString().split("T")[0];
+                  //     if (dateStr === todayStr) {
+                  //       args.el.classList.add("fc-today-highlight");
+                  //     }
+                  //   }}
+                  dayCellDidMount={(args) => {
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    const cellDate = new Date(args.date);
+                    cellDate.setHours(0, 0, 0, 0);
+
+                    const isToday = cellDate.getTime() === today.getTime();
+
+                    if (isToday) {
+                      const inner = args.el.querySelector(
+                        ".fc-daygrid-day-number"
+                      ) as HTMLElement;
+                      if (inner) {
+                        inner.style.backgroundColor = "#3b82f6"; // blue
+                        inner.style.color = "white";
+                        inner.style.borderRadius = "50%";
+                        inner.style.width = "24px";
+                        inner.style.height = "24px";
+                        inner.style.display = "flex";
+                        inner.style.alignItems = "center";
+                        inner.style.justifyContent = "center";
+                        inner.style.margin = "0 auto";
+                      }
+                    }
                   }}
-                  styles={{
-                    head: { color: "#aaa" },
-                    head_cell: {
-                      color: "#aaa",
-                      fontWeight: "normal",
-                      fontSize: "0.875rem",
-                      padding: "6px 0",
-                    },
-                    row: { height: "40px" },
-                    cell: { textAlign: "center", padding: "0" },
-                    day: {
-                      margin: "0 auto",
-                      width: "36px",
-                      height: "36px",
-                      lineHeight: "36px",
-                      borderRadius: "50%",
-                      color: "white",
-                    },
-                    day_selected: {
-                      backgroundColor: "#2563eb",
-                      color: "white",
-                    },
-                    day_today: {
-                      border: "1px solid #2563eb",
-                    },
+                  datesSet={(info) => {
+                    const monthLabel =
+                      document.getElementById("fc-month-label");
+                    if (monthLabel) {
+                      monthLabel.textContent = info.view.title;
+                    }
                   }}
-                  className="bg-black"
                 />
               </div>
             </motion.div>
