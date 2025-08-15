@@ -2,6 +2,7 @@ import "./App.css";
 import DashboardMenu from "./components/DashboardMenu";
 import Navbar from "./components/Navbar";
 import DashboardMain from "./components/DashboardMain";
+// import { BudgetingModal } from "./components/BudgetingModal";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <DashboardMain />
         </div>
       </section>
+      {/* <div className="bg-red-800">
+        <BudgetingModal />
+      </div> */}
     </main>
   );
 }

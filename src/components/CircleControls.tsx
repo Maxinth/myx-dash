@@ -9,7 +9,7 @@ interface Props {
 }
 const CircleControls = ({ data, setIndex, index }: Props) => {
   return (
-    <div className="flex items-center justify-center gap-3 absolute top-[269px] left-[180px]">
+    <div className="flex items-center justify-center gap-3 absolute z-40 top-[269px] left-[180px]">
       {data?.map((_, i) => (
         <Fragment key={i}>
           <img
