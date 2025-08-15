@@ -14,7 +14,7 @@ export function BudgetingModal({ isOpen, setIsOpen }: Props) {
           className="fixed z-40 inset-0 bg-black/50 opacity-45"
           onClick={() => setIsOpen(false)}
         />
-        <Dialog.Content className="fixed z-50 w-[478px] left-1/2  !rounded-2xl top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white  shadow-lg">
+        <Dialog.Content className="fixed z-50 w-[310px] sm:w-[478px] left-1/2  !rounded-2xl top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white  shadow-lg">
           <Dialog.Title className="text-lg font-semibold w-full">
             <img
               src={budgetImg}
@@ -22,7 +22,7 @@ export function BudgetingModal({ isOpen, setIsOpen }: Props) {
               className="rounded-t-2xl w-full"
             />
           </Dialog.Title>
-          <Dialog.Description className="mt-2 text-gray-600 !rounded-2xl py-6 px-13">
+          <Dialog.Description className="mt-2 text-gray-600 !rounded-2xl p-4 xl:py-6 xl:px-13">
             <div className="flex items-center flex-col gap-6 ">
               {modalData?.map((item, index) => (
                 <Fragment key={index}>

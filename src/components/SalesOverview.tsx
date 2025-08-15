@@ -1,8 +1,8 @@
 const SalesOverview = () => {
   return (
-    <div className="flex flex-col gap-4 py-4 px-2 pr-6">
-      <div className="flex items-center justify-between">
-        <div className="my-3 px-4">
+    <div className="flex flex-col gap-4 py-4 px-2 pr-6 flex-wrap">
+      <div className="flex items-center justify-between flex-wrap">
+        <div className="my-3 px-4 ">
           <h2 className="text-pri-black font-semibold text-xl">
             Sales Overview
           </h2>

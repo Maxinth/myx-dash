@@ -5,7 +5,7 @@ import DashboardMain from "./components/DashboardMain";
 
 function App() {
   return (
-    <main className="!font-ecb w-full max-w-[1440px] mx-auto main">
+    <main className="!font-ecb w-full max-w-[1440px] mx-auto main overflow-x-hidden">
       <section className="w-full ">
         <Navbar />
         <div className=" w-full mt-24 ">

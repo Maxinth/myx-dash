@@ -37,7 +37,9 @@ const StatBox = ({ name, value }: { name: string; value: string }) => {
   return (
     <div className="flex flex-col items-start gap-2 ">
       <p className="text-sm text-[#525252] font-medium">{name}</p>
-      <p className="text-2xl font-semibold text-[#141414]">{value}</p>
+      <p className="text-base xl:text-2xl font-semibold text-[#141414]">
+        {value}
+      </p>
     </div>
   );
 };

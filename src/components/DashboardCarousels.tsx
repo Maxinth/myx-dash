@@ -19,7 +19,7 @@ interface IImageItem {
 }
 const DashboardCarousels = () => {
   return (
-    <section className="py-5 grid grid-cols-3 gap-4 h-[40vh] bg-[#F9FAFB]">
+    <section className="py-5 grid grid-cols-2  md:grid-cols-3 gap-4 h-[40vh] bg-[#F9FAFB]">
       <CarouselItem data={mostClicked} interval={3000} />
       <CarouselItem data={mostWatchListed} interval={3200} />
       <CarouselItem data={hotestListings} interval={3300} withChat />
@@ -62,7 +62,7 @@ const CarouselItem = ({
   );
   const { matchCurrentItem } = matchAndMakeCurrent(index, makeCurrentSlide);
   return (
-    <div className="relative">
+    <div className={`relative ${withChat ? "hidden xl:block" : "block"}`}>
       {withChat && (
         <img
           src={fixedChatIcon}

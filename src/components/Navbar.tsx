@@ -14,13 +14,17 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`bg-[#191919] max-w-[1440px] mx-auto py-7 px-19 flex w-full items-center justify-between fixed top-0 left-0 right-0 !pointer-events-auto ${
+        className={`bg-[#191919] max-w-[1440px] mx-auto py-7 px-4 xl:px-19 flex w-full items-center justify-between fixed top-0 left-0 right-0 !pointer-events-auto ${
           isBudgetModalShown ? "z-10" : "z-40 "
         }`}
       >
-        <img src={Logo} alt="logo" className="cursor-pointer" />
+        <img src={Logo} alt="logo" className="cursor-pointer " />
         <div className="flex items-center justify-end gap-6 w-full">
-          <img src={BellIcon} alt="" className="cursor-not-allowed" />
+          <img
+            src={BellIcon}
+            alt=""
+            className="cursor-not-allowed hidden md:block"
+          />
           <img
             src={BudgetIcon}
             alt=""
@@ -33,8 +37,16 @@ const Navbar = () => {
             onClick={() => setIsCalendarShown(!isCalendarShown)}
             className="cursor-pointer"
           />
-          <img src={ChatIcon} alt="msg" className="cursor-not-allowed" />
-          <img src={AvatarIcon} alt="profile" className="cursor-not-allowed" />
+          <img
+            src={ChatIcon}
+            alt="msg"
+            className="cursor-not-allowed hidden md:block"
+          />
+          <img
+            src={AvatarIcon}
+            alt="profile"
+            className="cursor-not-allowed hidden md:block"
+          />
         </div>
       </nav>
       <CalendarDrawer isOpen={isCalendarShown} setIsOpen={setIsCalendarShown} />

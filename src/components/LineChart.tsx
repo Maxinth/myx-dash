@@ -93,10 +93,10 @@ export default function GroupedBarChart() {
   };
 
   return (
-    <section className="flex items-center h-[200px]">
-      <img src={LeftPlay} alt="left-play" />
+    <section className="w-full flex items-center  h-full lg:h-[200px] px-4">
+      <img src={LeftPlay} alt="left-play" className="hidden lg:block" />
       <Bar data={data} options={options} />
-      <img src={RightPlay} alt="right-play" />
+      <img src={RightPlay} alt="right-play" className="hidden lg:block" />
     </section>
   );
 }
