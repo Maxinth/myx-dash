@@ -1,12 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
-import {
-  mostClicked,
-  matchAndMakeCurrent,
-  mostWatchListed,
-  hotestListings,
-} from "./data";
+import { mostClicked, mostWatchListed, hotestListings } from "./data";
 import CircleControls from "./CircleControls";
 import useSliderAndGetCurrentValues, {
+  matchAndMakeCurrent,
   itemPosition,
   type ItemPosition,
 } from "../hooks/useSliderAndGetCurrentValues";

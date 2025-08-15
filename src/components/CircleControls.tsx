@@ -15,7 +15,7 @@ const CircleControls = ({ data, setIndex, index }: Props) => {
           <img
             src={i === index ? whiteCircle : initCircle}
             alt="init-circle"
-            className="scale-200 cursor-pointer"
+            className="scale-150 cursor-pointer"
             onClick={() => setIndex(i)}
           />
         </Fragment>

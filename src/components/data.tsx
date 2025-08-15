@@ -131,26 +131,10 @@ const hotestListings = [
   hostestListingFive,
 ];
 
-const matchAndMakeCurrent = (
-  index: number,
-  setIndex: (val: number) => void
-) => {
-  const makeCurrentItem = (index: number) => {
-    return setIndex(index);
-  };
-
-  // custom function to style control box
-  const matchCurrentItem = (itemIndex: number) =>
-    itemIndex === index ? "current" : "";
-
-  return { makeCurrentItem, matchCurrentItem };
-};
-
 export {
   dashMenuData,
   cashFlowData,
   listingOverviewData,
-  matchAndMakeCurrent,
   mostClicked,
   mostWatchListed,
   hotestListings,
