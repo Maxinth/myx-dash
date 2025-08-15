@@ -39,7 +39,7 @@ export default function GroupedBarChart() {
     datasets: [
       {
         label: "Series 1",
-        data: [35, 8, 14, 12, 8, 32, 22, 20, 31],
+        data: [35, 8, 14, 12, 10, 32, 22, 20, 31],
         backgroundColor: "#4545FE",
         barPercentage: 0.6,
         categoryPercentage: 0.8,
@@ -53,7 +53,7 @@ export default function GroupedBarChart() {
       },
       {
         label: "Series 3",
-        data: [10, 9, 4, 0, 8, 7, 15, 15, 8],
+        data: [10, 9, 4, 8, 8, 7, 15, 15, 8],
         backgroundColor: "#F04438",
         barPercentage: 0.6,
         categoryPercentage: 0.8,
