@@ -24,6 +24,10 @@ import hostestListingThree from "../assets/hostest-listing-3.png";
 import hostestListingFour from "../assets/hostest-listing-4.png";
 import hostestListingFive from "../assets/hostest-listing-5.png";
 
+import modalSetting from "../assets/modal-setting.svg";
+import modalAdjust from "../assets/modal-adjust.svg";
+import modalTrend from "../assets/modal-trend.svg";
+
 const dashMenuData = [
   {
     name: "Dashboard",
@@ -131,7 +135,26 @@ const hotestListings = [
   hostestListingFive,
 ];
 
+const modalData = [
+  {
+    title: "Set up annual budgets by account category",
+    sub: "Allocate funds across income and expense lines with full visibility.",
+    img: modalSetting,
+  },
+  {
+    title: "Track actuals vs budget in real time",
+    sub: "See how your community is performing against plan, month by month.",
+    img: modalTrend,
+  },
+  {
+    title: "Adjust figures and forecast with ease",
+    sub: "Edit amounts, apply percentage changes, or roll forward last year’s data—all in one place.",
+    img: modalAdjust,
+  },
+];
+
 export {
+  modalData,
   dashMenuData,
   cashFlowData,
   listingOverviewData,

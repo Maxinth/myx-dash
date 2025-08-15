@@ -1,26 +1,61 @@
 import * as Dialog from "@radix-ui/react-dialog";
-
-export function BudgetingModal() {
+import budgetImg from "../assets/budget-img.png";
+import { modalData } from "./data";
+import { Fragment } from "react/jsx-runtime";
+interface Props {
+  isOpen: boolean;
+  setIsOpen: (val: boolean) => void;
+}
+export function BudgetingModal({ isOpen, setIsOpen }: Props) {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger className="px-4 py-2 bg-blue-600 text-white rounded">
-        Open Modal
-      </Dialog.Trigger>
-
+    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 w-96 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded shadow-lg">
-          <Dialog.Title className="text-lg font-semibold">
-            Modal Title
+        <Dialog.Overlay
+          className="fixed z-40 inset-0 bg-black/50 opacity-45"
+          onClick={() => setIsOpen(false)}
+        />
+        <Dialog.Content className="fixed z-50 w-[478px] left-1/2  !rounded-2xl top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white  shadow-lg">
+          <Dialog.Title className="text-lg font-semibold w-full">
+            <img
+              src={budgetImg}
+              alt="budget"
+              className="rounded-t-2xl w-full"
+            />
           </Dialog.Title>
-          <Dialog.Description className="mt-2 text-gray-600">
-            This is a Radix modal styled with Tailwind.
+          <Dialog.Description className="mt-2 text-gray-600 !rounded-2xl py-6 px-13">
+            <div className="flex items-center flex-col gap-6 ">
+              {modalData?.map((item, index) => (
+                <Fragment key={index}>
+                  <ModalItem {...item} />
+                </Fragment>
+              ))}
+            </div>
+            <button className="rounded-full !font-ecb mt-6 outline-none border-none bg-[#18181B] text-white p-3 w-full">
+              Create Budget
+            </button>
           </Dialog.Description>
-          <Dialog.Close className="mt-4 px-4 py-2 bg-gray-200 rounded">
-            Close
-          </Dialog.Close>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   );
 }
+
+const ModalItem = ({
+  title,
+  sub,
+  img,
+}: {
+  title: string;
+  sub: string;
+  img: string;
+}) => {
+  return (
+    <div className="flex items-center gap-3 !font-ecb">
+      <img src={img} />
+      <div className="flex items-start flex-col gap-1">
+        <p className="text-pri-black font-semibold">{title}</p>
+        <p className="text-[12px] text-[#606060]">{sub}</p>
+      </div>
+    </div>
+  );
+};

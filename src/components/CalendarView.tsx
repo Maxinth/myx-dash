@@ -35,18 +35,9 @@ export default function CalendarView({ isOpen, setIsOpen }: Props) {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay */}
-            <motion.div
-              className=""
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-            />
-
             {/* Sidebar */}
             <motion.div
-              className="fixed right-0 z-50 w-[400px] top-[98px] h-full max-h-[818px]  bg-black text-[#969696] shadow-lg flex flex-col"
+              className="fixed right-0 z-50 w-[400px] top-[96px] h-full max-h-[818px]  bg-black text-[#969696] shadow-lg flex flex-col"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
