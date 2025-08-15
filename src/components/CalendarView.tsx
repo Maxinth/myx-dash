@@ -58,7 +58,11 @@ export default function CalendarView({ isOpen, setIsOpen }: Props) {
                   onClick={handlePrev}
                   className="p-1 text-gray-400 hover:text-white"
                 >
-                  <img src={CalenderNavLeftIcon} alt="nav-left" />
+                  <img
+                    src={CalenderNavLeftIcon}
+                    alt="nav-left"
+                    className="cursor-pointer"
+                  />
                 </button>
                 <h2
                   id="fc-month-label"
@@ -70,7 +74,11 @@ export default function CalendarView({ isOpen, setIsOpen }: Props) {
                   onClick={handleNext}
                   className="p-1 text-gray-400 hover:text-white"
                 >
-                  <img src={CalenderNavRightIcon} alt="nav-right" />
+                  <img
+                    src={CalenderNavRightIcon}
+                    alt="nav-right"
+                    className="cursor-pointer"
+                  />
                 </button>
               </div>
               <div className="h-full max-h-[600px] overflow-y-auto">
