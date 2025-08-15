@@ -1,7 +1,5 @@
 import "./App.css";
 import DashboardMenu from "./components/DashboardMenu";
-// import CalendarSidebar from "./components/Calendar";
-
 import Navbar from "./components/Navbar";
 import DashboardMain from "./components/DashboardMain";
 
@@ -10,7 +8,7 @@ function App() {
     <main className="!font-ecb w-full max-w-[1440px] mx-auto ">
       <section className=" w-full ">
         <Navbar />
-        <div className=" w-full ">
+        <div className=" w-full mt-24">
           <DashboardMenu />
           <DashboardMain />
         </div>

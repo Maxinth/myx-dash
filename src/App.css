@@ -20,8 +20,8 @@
 }
 
 .fc-daygrid-day-number {
-  font-size: 14px;
-  color: white;
+  font-size: 9.94px;
+  color: #969696;
 }
 
 .fc-today-highlight {
@@ -42,9 +42,10 @@
 }
 
 .fc-col-header-cell-cushion {
-  color: white;
+  color: #969696;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 8px;
+  text-transform: uppercase;
 }
 
 .fc-theme-standard {
