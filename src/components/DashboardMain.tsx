@@ -4,10 +4,11 @@ import SalesOverview from "./SalesOverview";
 import { cashFlowData, listingOverviewData } from "../components/data";
 import { Fragment } from "react/jsx-runtime";
 import ListingOverviewBox from "./ListingOverviewBox";
+import DashboardCarousels from "./DashboardCarousels";
 
 const DashboardMain = () => {
   return (
-    <section className="px-19 bg-[#F9FAFB] h-screen pt-3">
+    <section className="px-19 bg-[#F9FAFB]   pt-3">
       <h1 className="font-semibold text-pri-black mb-3 text-xl">
         Welcome, Ahmed
       </h1>
@@ -36,6 +37,7 @@ const DashboardMain = () => {
           ))}
         </div>
       </section>
+      <DashboardCarousels />
     </section>
   );
 };

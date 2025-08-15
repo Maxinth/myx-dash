@@ -8,6 +8,15 @@ import ImgThree from "../assets/cash-f-3.svg";
 import ImgFour from "../assets/cash-f-4.svg";
 import listingHome from "../assets/listing-home.svg";
 import listingUser from "../assets/listing-user.svg";
+//* Carousels
+import mostClickedOne from "../assets/most-clicked-1.png";
+import mostClickedTwo from "../assets/most-clicked-2.png";
+
+import mostWatchListedOne from "../assets/most-watchlisted-1.png";
+import mostWatchListedTwo from "../assets/most-watchlisted-2.png";
+import mostWatchListedThree from "../assets/most-watchlisted-3.png";
+import mostWatchListedFour from "../assets/most-watchlisted-4.png";
+import mostWatchListedFive from "../assets/most-watchlisted-5.png";
 
 const dashMenuData = [
   {
@@ -99,4 +108,35 @@ const listingOverviewData = [
   },
 ];
 
-export { dashMenuData, cashFlowData, listingOverviewData };
+const mostClicked = [mostClickedOne, mostClickedTwo];
+const mostWatchListed = [
+  mostWatchListedOne,
+  mostWatchListedTwo,
+  mostWatchListedThree,
+  mostWatchListedFour,
+  mostWatchListedFive,
+];
+
+const matchAndMakeCurrent = (
+  index: number,
+  setIndex: (val: number) => void
+) => {
+  const makeCurrentItem = (index: number) => {
+    return setIndex(index);
+  };
+
+  // custom function to style control box
+  const matchCurrentItem = (itemIndex: number) =>
+    itemIndex === index ? "current" : "";
+
+  return { makeCurrentItem, matchCurrentItem };
+};
+
+export {
+  dashMenuData,
+  cashFlowData,
+  listingOverviewData,
+  matchAndMakeCurrent,
+  mostClicked,
+  mostWatchListed,
+};
