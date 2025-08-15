@@ -20,7 +20,7 @@ const Navbar = () => {
       >
         <img src={Logo} alt="logo" className="cursor-pointer" />
         <div className="flex items-center justify-end gap-6 w-full">
-          <img src={BellIcon} alt="" className="cursor-pointer" />
+          <img src={BellIcon} alt="" className="cursor-not-allowed" />
           <img
             src={BudgetIcon}
             alt=""
@@ -33,8 +33,8 @@ const Navbar = () => {
             onClick={() => setIsCalendarShown(!isCalendarShown)}
             className="cursor-pointer"
           />
-          <img src={ChatIcon} alt="" className="cursor-pointer" />
-          <img src={AvatarIcon} alt="" className="cursor-pointer" />
+          <img src={ChatIcon} alt="msg" className="cursor-not-allowed" />
+          <img src={AvatarIcon} alt="profile" className="cursor-not-allowed" />
         </div>
       </nav>
       <CalendarDrawer isOpen={isCalendarShown} setIsOpen={setIsCalendarShown} />

@@ -6,6 +6,7 @@ import useSliderAndGetCurrentValues, {
   itemPosition,
   type ItemPosition,
 } from "../hooks/useSliderAndGetCurrentValues";
+import fixedChatIcon from "../assets/fixed-chat-icon.svg";
 
 interface IImageItem {
   src: string;
@@ -21,7 +22,7 @@ const DashboardCarousels = () => {
     <section className="py-5 grid grid-cols-3 gap-4 h-[40vh] bg-[#F9FAFB]">
       <CarouselItem data={mostClicked} interval={3000} />
       <CarouselItem data={mostWatchListed} interval={3200} />
-      <CarouselItem data={hotestListings} interval={3300} />
+      <CarouselItem data={hotestListings} interval={3300} withChat />
     </section>
   );
 };
@@ -49,9 +50,11 @@ const ImageItem = ({
 const CarouselItem = ({
   data,
   interval = 4000,
+  withChat = false,
 }: {
   data: string[];
   interval: number;
+  withChat?: boolean;
 }) => {
   const { items, index, makeCurrentSlide } = useSliderAndGetCurrentValues(
     data,
@@ -60,6 +63,13 @@ const CarouselItem = ({
   const { matchCurrentItem } = matchAndMakeCurrent(index, makeCurrentSlide);
   return (
     <div className="relative">
+      {withChat && (
+        <img
+          src={fixedChatIcon}
+          alt="chat"
+          className="absolute -right-3 z-30 top-10 cursor-pointer"
+        />
+      )}
       <div className="flex items-center relative ">
         {items?.map((item, itemIndex) => (
           <Fragment key={itemIndex}>
