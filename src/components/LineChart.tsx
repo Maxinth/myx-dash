@@ -93,7 +93,7 @@ export default function GroupedBarChart() {
   };
 
   return (
-    <section className="flex items-center">
+    <section className="flex items-center h-[200px]">
       <img src={LeftPlay} alt="left-play" />
       <Bar data={data} options={options} />
       <img src={RightPlay} alt="right-play" />
