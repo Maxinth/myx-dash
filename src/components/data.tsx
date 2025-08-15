@@ -18,6 +18,12 @@ import mostWatchListedThree from "../assets/most-watchlisted-3.png";
 import mostWatchListedFour from "../assets/most-watchlisted-4.png";
 import mostWatchListedFive from "../assets/most-watchlisted-5.png";
 
+import hostestListingOne from "../assets/hostest-listing-1.png";
+import hostestListingTwo from "../assets/hostest-listing-2.png";
+import hostestListingThree from "../assets/hostest-listing-3.png";
+import hostestListingFour from "../assets/hostest-listing-4.png";
+import hostestListingFive from "../assets/hostest-listing-5.png";
+
 const dashMenuData = [
   {
     name: "Dashboard",
@@ -117,6 +123,14 @@ const mostWatchListed = [
   mostWatchListedFive,
 ];
 
+const hotestListings = [
+  hostestListingOne,
+  hostestListingTwo,
+  hostestListingThree,
+  hostestListingFour,
+  hostestListingFive,
+];
+
 const matchAndMakeCurrent = (
   index: number,
   setIndex: (val: number) => void
@@ -139,4 +153,5 @@ export {
   matchAndMakeCurrent,
   mostClicked,
   mostWatchListed,
+  hotestListings,
 };
