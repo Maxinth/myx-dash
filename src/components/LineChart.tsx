@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import LeftPlay from "../assets/left-play.svg";
+import RightPlay from "../assets/right-play.svg";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -75,7 +76,7 @@ export default function GroupedBarChart() {
       y: {
         beginAtZero: true,
         grid: {
-          display: false, // ⬅ removes horizontal grid lines
+          display: false,
         },
         ticks: {
           callback(this: any, value: string | number) {
@@ -85,11 +86,17 @@ export default function GroupedBarChart() {
       },
       x: {
         grid: {
-          display: false, // ⬅ removes vertical grid lines
+          display: false,
         },
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <section className="flex items-center">
+      <img src={LeftPlay} alt="left-play" />
+      <Bar data={data} options={options} />
+      <img src={RightPlay} alt="right-play" />
+    </section>
+  );
 }

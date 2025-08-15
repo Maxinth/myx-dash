@@ -3,6 +3,7 @@ import DashboardMenu from "./components/DashboardMenu";
 // import CalendarSidebar from "./components/Calendar";
 // import GroupedBarChart from "./components/LineChart";
 import Navbar from "./components/Navbar";
+import DashboardMain from "./components/DashboardMain";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Navbar />
         <div className=" w-full ">
           <DashboardMenu />
+          <DashboardMain />
         </div>
       </section>
     </main>

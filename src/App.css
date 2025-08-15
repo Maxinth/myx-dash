@@ -2,7 +2,11 @@
 
 @theme {
   --font-ecb: "Euclid Circular B", sans-serif;
+  --color-pri-black: "#191919";
+  --color-mid-gray: "#606060";
 }
+
+/* Calendar resets */
 
 .fc-daygrid-day {
   border: 1px solid #242424 !important;

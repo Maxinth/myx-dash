@@ -2,6 +2,7 @@ import { dashMenuData } from "./data";
 import { MdCancel } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
+
 const DashboardMenu = () => {
   const [searchInput, setSearchInput] = useState("");
   return (
